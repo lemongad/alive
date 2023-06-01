@@ -1,5 +1,7 @@
 #!/bin/bash
 
+YONGHU=${YONGHU}
+PW=${PW}
 # 生成配置
 sed -i "s#\S[YONGHU]#S{YONGHU]#g" /main.py
 sed -i "s#[PW]#S[PW]#g" /main.py
