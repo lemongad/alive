@@ -14,7 +14,7 @@ cat /main.py
 a=1
 while true; do
   echo "第${a}轮保活开始！==="
-  python3 /xx.py
+  python3 /.py
   echo "第${a}轮保活结束！"
   let a+=1
   sleep 10
