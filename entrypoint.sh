@@ -3,10 +3,11 @@
 import os
 import subprocess
 
-YONGHU = os.environ.get('YONGHU')
-PW = os.environ.get('PW')
-URL = os.environ.get('URL')
-URL2 = os.environ.get('URL2')
+YONGHU = os.environ.get('YONGHU', '')
+PW = os.environ.get('PW', '')
+URL = os.environ.get('URL', '')
+URL2 = os.environ.get('URL2', '')
+
 
 # 生成配置
 with open('/main.py', 'r') as f:
