@@ -1,12 +1,15 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 
 YONGHU=${YONGHU}
 PW=${PW}
+URL=${URL}
+URL2=${URL2}
+
 # 生成配置
-sed -i "s#\S[YONGHU]#S{YONGHU]#g" /main.py
-sed -i "s#[PW]#S[PW]#g" /main.py
-sed -i "s#\S[URL]#S{URL]#g" /main.py
-sed -i "s#\${URL2]#S[URL2]#g" /main.py
+sed -i "s#\${YONGHU}#$YONGHU#g" /main.py
+sed -i "s#\${PW}#$PW#g" /main.py
+sed -i "s#\${URL}#$URL#g" /main.py
+sed -i "s#\${URL2}#$URL2#g" /main.py
 chmod +x /main.py
 cat /main.py
 
