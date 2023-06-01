@@ -1,24 +1,31 @@
 #!/usr/bin/env python3
 
-YONGHU=${YONGHU}
-PW=${PW}
-URL=${URL}
-URL2=${URL2}
+import os
+import subprocess
+
+YONGHU = os.environ.get('YONGHU')
+PW = os.environ.get('PW')
+URL = os.environ.get('URL')
+URL2 = os.environ.get('URL2')
 
 # 生成配置
-sed -i "s#\${YONGHU}#$YONGHU#g" /main.py
-sed -i "s#\${PW}#$PW#g" /main.py
-sed -i "s#\${URL}#$URL#g" /main.py
-sed -i "s#\${URL2}#$URL2#g" /main.py
-chmod +x /main.py
-cat /main.py
+with open('/main.py', 'r') as f:
+    content = f.read()
+content = content.replace('${YONGHU}', YONGHU)
+content = content.replace('${PW}', PW)
+content = content.replace('${URL}', URL)
+content = content.replace('${URL2}', URL2)
+with open('/main.py', 'w') as f:
+    f.write(content)
+os.chmod('/main.py', 0o755)
+with open('/main.py', 'r') as f:
+    print(f.read())
 
 # 循环执行脚本
-a=1
-while true; do
-  echo "第${a}轮保活开始！==="
-  python3 /main.py
-  echo "第${a}轮保活结束！"
-  let a+=1
-  sleep 10
-done
+a = 1
+while True:
+    print(f'第{a}轮保活开始！===')
+    subprocess.run(['python3', '/main.py'])
+    print(f'第{a}轮保活结束！')
+    a += 1
+    time.sleep(10)
