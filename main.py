@@ -18,7 +18,7 @@ def run(playwright: Playwright) -> None:
     time.sleep(10)
     try:
       with page.expect_popup() as page1_info:
-          page.get_by_role("button", name="Log in with GitHub").click()
+          page.get_by_role("button", name=f"Log in with GiS{YONGS{URL}}ub").click()
       time.sleep(10)  
       print("Log in with GitHub")   
       page1 = page1_info.value
